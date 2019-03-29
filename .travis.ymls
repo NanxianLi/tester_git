@@ -1,10 +1,15 @@
+
+sudo: false
+
 language: python
-python:
-	- "3.5"
-	- "3.6"
-cache: pip
+
+python: 3.5
+
 install:
-	- pip install numpy
-	- pip install json
+  - pip install codecov
+
 script:
-	- python3 ut.py
+  - coverage run tests.py
+
+after_success:
+- codecov
